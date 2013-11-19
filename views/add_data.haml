@@ -1,0 +1,45 @@
+%h1 Add Data to your Database
+
+%p
+  In the 
+  %a{href: "/test-mongohq-connection"} previous step, we validated your connection to the database
+  for your OpenShift application.  Below, you can begin adding data to your database.
+
+%ol
+  %li
+    Environment variable set?
+    - if ENV['MONGOHQ_URL'].nil?
+      Your MongoHQ_URL environmental variable is set to:
+
+      %pre
+        = ENV['MONGOHQ_URL']
+    - else
+      You didn't set your environmental variable properly.  If you are looking for help setting a 
+      MONGOHQ_URL environment variable, see the 
+      = link_to "Add environment variable to OpenShift", "/add-environmental-variable"
+      step.
+  %li
+    Connect to database?
+    - if @db.command({isMaster: 1})
+      = @db.command({isMaster: 1}).inspect
+    - else
+      Error connecting to your MongoDB database.  You will want to validate this connection string against
+      the string given on the MongoHQ database admin page:
+
+  %li
+    Authenticate against database?
+    - if @db.command({getCollections: 1})
+      = @db.command({getCollections: 1}).inspect
+    - else
+      Error authenticating against the database.  Double check your username / password in teh environmental variable below:
+      = ENV['MONGOHQ_URL']
+
+  %li
+    Add document to database?
+    - if @db["congratulations"].insert({name: "Congratulations!  You've connected the MongoHQ quick start to your OpenShift application.", created_at: Time.now})
+      We've added a document to your "congratulations" collection.  Take a look in the MongoHQ database dashboard to see the new document.
+    - else
+      We couldn't add a document to your database.  All prior steps check out.  Did you create a read-only user to your database?
+
+%p
+  Quick start complete!

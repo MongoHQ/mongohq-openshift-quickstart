@@ -1,0 +1,39 @@
+%h1 Add Environmental Variable
+
+%p
+  We will set an environmental variable to configuration an application's access to the
+  database.
+
+%ol.instruction-list
+  %li 
+    %p
+      In MongoHQ, go to the "Admin Page" for your database, and select the "Mongo URI"
+    %img{src: "/images/screenshots/admin.png"}
+
+  %li
+    %p
+      In OpenShift, we will assign the "Mongo URI" to the
+      %span.code MONGO_URL
+      environmental variable.  The application will use the connection string to access
+      the database.  Replace the
+      %em &lt;user&gt;
+      and 
+      %em &lt;password&gt;
+      place holders with the values set in the prior step.
+
+    %pre= @configure_environmental_variable
+
+    %p
+      Your MongoDB connection string will be different than the one given.  We will 
+      check your settings on the next step. For more information on the 
+      %span.code rhc
+      command line tool from OpenShift, see 
+      %a{href: "https://www.openshift.com/developers/rhc-client-tools-install"} https://www.openshift.com/developers/rhc-client-tools-install
+      = "."
+
+%p.previous
+  <<
+  %a{href: "/add-user-to-mongohq-database"} Add User to MongoHQ Database
+%p.next
+  %a{href: "/test-mongohq-connection"} Test MongoHQ Connection
+  >>

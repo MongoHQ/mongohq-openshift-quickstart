@@ -1,0 +1,27 @@
+%h1 Test MongoHQ Connection
+
+%p
+  Let's test your configuration!  Below, we will walk through the debugging process,
+  and see if all checks out.
+
+%ol
+  - @checks.each do |check|
+    %li{class: "test-settings #{check[:status]}"}
+      %p.message
+        %span.status= check[:status].upcase
+        = check[:message]
+      - if check[:link]
+        %p 
+          %a{href: "/add-environmental-variable"} Click here to go to the step for assistance.
+
+- if @success
+  .final-success
+    All checks out properly -- you are ready to build :)
+- else
+  .final-error
+    An error occurred while testing your connection.  See the debugging statements above.
+
+
+%p.previous
+  <<
+  %a{href: "/add-environmental-variable"} Add Environmental Variable
