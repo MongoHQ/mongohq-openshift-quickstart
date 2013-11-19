@@ -31,6 +31,13 @@
       %a{href: "https://www.openshift.com/developers/rhc-client-tools-install"} https://www.openshift.com/developers/rhc-client-tools-install
       = "."
 
+  %li
+    Restart your OpenShift application
+
+    %pre
+      $ rhc app stop -a &lt;app name&gt;
+      $ rhc app start -a &lt;app name&gt;
+
 %p.previous
   <<
   %a{href: "/add-user-to-mongohq-database"} Add User to MongoHQ Database

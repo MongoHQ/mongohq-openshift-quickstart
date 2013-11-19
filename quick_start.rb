@@ -38,9 +38,9 @@ class QuickStart < Sinatra::Base
 
   get "/add-environmental-variable" do
     @configure_environmental_variable = <<-CODE
-> gem install rhc
-> rhc setup
-> rhc -a mongohq --set-env MONGO_URL=mongodb://my-username:my-password@paulo.mongohq.com:10079/my-database
+$ gem install rhc
+$ rhc setup
+$ rhc set-env MONGO_URL=<MONGO URI> -a <app name>
     CODE
 
     haml :add_environmental_variable
