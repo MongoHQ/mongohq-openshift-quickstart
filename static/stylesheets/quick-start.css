@@ -145,9 +145,17 @@ li.test-settings.error .status{
   font-weight: 600;
   font-size: 10px;
   background: #aa0000;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
+  padding: 5px;
 }
 li.test-settings.correct .status{
   font-weight: 600;
   font-size: 10px;
   background: #00aa00;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
+  padding: 5px;
 }
