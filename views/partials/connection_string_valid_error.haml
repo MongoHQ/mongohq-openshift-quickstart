@@ -1,0 +1,16 @@
+%li.test-settings.error
+  %p.message
+    %span.status error
+
+    Invalid MongoDB connection string set for <span class='code'>MONGO_URL</span>.
+    The value is set to
+
+  %pre= ENV['MONGO_URL']
+
+  %p Proper connection strings are formatted like:
+
+  %pre mongodb://user:password@host:port/database-name
+
+  %p
+    %a{href: "/add-environmental-variable"}
+      Click here to go back to the instructions for adding an environmental variable.

@@ -21,7 +21,7 @@
       %em &lt;password&gt;
       place holders with the values set in the prior step.
 
-    %pre= @configure_environmental_variable
+    %pre= haml "partials/_set_env_code".to_sym
 
     %p
       Your MongoDB connection string will be different than the one given.  We will 
@@ -34,9 +34,7 @@
   %li
     Restart your OpenShift application
 
-    %pre
-      $ rhc app stop -a &lt;app name&gt;
-      $ rhc app start -a &lt;app name&gt;
+    %pre= haml "partials/_restart_application".to_sym
 
 %p.previous
   <<

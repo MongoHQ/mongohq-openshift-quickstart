@@ -1,0 +1,17 @@
+%li.test-settings.error
+  %p.message
+    %span.status error
+
+    No Mongo accessible at <span class='code'>MONGO_URL</span>. Your connection string is:
+
+  %span.code= ENV['MONGO_URL']
+
+  %p To resolve, double check the <span class='code'>host:port</span> portion of the connection string that is formatted like so:
+
+  %span.code mongodb://username:password@host:port/database-name
+
+  %p This error means the application cannot connect to a Mongo running at the given <span class='code'>host:port</span>.
+
+  %p
+    %a{href: "/add-environmental-variable"}
+      Click here to go back to the instructions for adding an environmental variable.

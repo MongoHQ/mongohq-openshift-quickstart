@@ -5,14 +5,12 @@
   and see if all checks out.
 
 %ol
-  - @checks.each do |check|
-    %li{class: "test-settings #{check[:status]}"}
-      %p.message
-        %span.status= check[:status].upcase
-        = check[:message]
-      - if check[:link]
-        %p 
-          %a{href: "/add-environmental-variable"} Click here to go to the step for assistance.
+  - CONNECTION_PROCESS.each do |check|
+    - if @connection_state.include?(check)
+      = haml "partials/#{check}_success".to_sym
+    - else
+      = haml "partials/#{check}_error".to_sym
+      - break
 
 - if @success
   .final-success
