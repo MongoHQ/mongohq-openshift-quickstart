@@ -14,10 +14,14 @@
 
 - if @success
   .final-success
-    All checks out properly -- you are ready to build :)
+    %p All checks out properly -- you are ready to build :)
+    %p
+      To get started, here is a $50 service credit from MongoHQ:
+      %a{href: "http://tour.mongohq.com/c/openshift"} http://tour.mongohq.com/c/openshift
+
 - else
   .final-error
-    An error occurred while testing your connection.  See the debugging statements above.
+    %p An error occurred while testing your connection.  See the debugging statements above.
 
 
 %p.previous
